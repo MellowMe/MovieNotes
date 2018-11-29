@@ -1,0 +1,106 @@
+
+body {
+    background: #eff4f8;
+    display: grid;
+    grid-template-columns: 1fr 1080px 1fr;
+    grid-template-areas: "l m r";
+}
+
+div.outWrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    grid-area: m;
+}
+
+div.record table {
+    border: 2px black solid;
+    border-radius: 10px;
+    background: #f1e7dc;
+    padding: 20px;
+}
+
+h3, h4 {
+    font-style: italic;
+    font-weight: bold;
+    color: #616161;
+}
+
+div.preview1 {
+    margin-top: 50px;
+}
+
+#poster {
+    width: 200px;
+    min-width: 200px;
+    min-height: 100px;
+    border: 2px black solid;
+}
+
+#photo {
+    width: 300px;
+    min-width: 300px;
+    min-height: 150px;
+    border: 2px black solid;
+}
+
+div#above {
+    overflow: scroll;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background: silver;
+    display: none;
+}
+
+div#out {
+    position: absolute;
+    left: 200px;
+    top: 150px;
+}
+
+div#wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: white;
+    resize: both;
+    overflow: auto;
+    display: none;
+    opacity: 0.3;
+    z-index: 99;
+}
+
+div#min {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    background-color: black;
+    opacity: 0.3;
+}
+
+div.operate {
+    position: absolute;
+    left: 200px;
+    top: 40px;
+}
+
+div.menu {
+    border-radius: 4px;
+    border: 1px #71a999 solid;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+div#secondaryMenu {
+    padding: 5px;
+    display: none;
+}

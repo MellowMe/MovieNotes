@@ -1,0 +1,75 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: 30vh 1fr 30vh;
+    grid-template-areas: "h h h " "l c r" "f f f";
+}
+.header{
+    margin-top: 30px;
+    grid-area: h;
+    text-align: center;
+    color: #bdb1a2;
+}
+h3{
+    font-style:italic;
+}
+.content{
+    font-family: "Segoe Print",sans-serif;
+    background-color: #75ddb7;
+    grid-area: c;
+    box-sizing: border-box;
+    text-align: center;
+}
+input{
+    background-color: #91d9c5;
+    font-family: "Segoe Print",sans-serif;
+}
+
+button{
+    background-color: #e1e1e1;
+    font-family: "Segoe Print",sans-serif;
+}
+
+#loginPanel input,#loginPanel button{
+    margin-top: 10px;
+    width: 250px;
+}
+
+#loginPanel a{
+    color:rgb(22, 43, 75); 
+}
+
+#loginPanel a:hover{
+    color:purple;
+}
+
+#registerPanel input{
+    width: 250px;
+    margin-bottom: 10px;
+}
+#registerPanel button{
+   width: 120px;
+   margin-bottom: 30px
+}
+
+#registerPanel{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+}
+.a1{
+    margin-right: 60px;
+}
+.footer{
+    grid-area: f;
+}
+.left{
+    background-color: #75ddb7;
+    grid-area: l;
+}
+.right{
+    background-color: #75ddb7;
+    grid-area: r;
+}

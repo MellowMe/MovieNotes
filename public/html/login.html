@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>影片小本登录</title>
+	<link type="text/css" rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<h1>影片小本</h1>
+			<h3>在这里记录、评价、分享你看过的电影</h3>
+		</div>
+		<div class="left"></div>
+		<div class="content">
+			<div id="loginPanel">
+				<h1>Welcome</h1>
+				<form id="loginForm" action="http://localhost:3000/userpage" method="post">
+					<p><input type="text" placeholder="Username" name="username" required /></p>
+					<p><input id="psw" type="password" placeholder="Password" name="password" required></p>
+					<button type="submit">Login</button>
+				</form>
+				<p><a class="a1" href="">忘记密码</a><a id="register" href="javascript:;">注册账户</a></p>
+			</div>
+			<div id="registerPanel">
+				<h1>register</h1>
+				<form>
+					<p><input id="username" type="text" placeholder="Username" name="username" required /></p>
+					<p><input id="password" type="password" placeholder="Password" name="password" required></p>
+					<p><input id="pswConfirm" type="password" placeholder="Password Confirm" required></p>
+					<button id="back2login" type="button">back</button>
+					<button id="signupBtn" type="button">signup</button>
+				</form>
+			</div>
+		</div>
+		<div class="right"></div>
+		<div class="footer"></div>
+	</div>
+
+	<script src="../js/login.js"></script>
+</body>
+
+</html>

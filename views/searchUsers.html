@@ -1,0 +1,20 @@
+{% macro userItem(user) %}
+<div class="item">
+	{% if user.avatar %}
+    	<img class="avatar" src="/upload/imgs/{{user.avatar}}" alt="头像">
+	{% else %}
+		<img class="avatar" src="/imgs/blank.png" alt="头像">
+	{% endif %}
+	<p class="username">{{ user.username }}</p>
+	{% if user.motto %}
+		<p class="motto">{{ user.motto }}</p>
+	{% else %}
+		<p class="motto">record,comment and share</p>
+	{% endif %}
+</div>
+{% endmacro %}
+{% for user in users %}
+{{ userItem(user) }}
+{% else %}
+	<p class="ifempty">没有相关数据</p>
+{% endfor %}

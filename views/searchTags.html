@@ -1,0 +1,15 @@
+{% macro tagItem(tag) %}
+<div class="item">
+<span class="tag">{{ tag.tagName }}</span>
+<span>&#9889;</span><span>{{ tag.refNumber }}</span>
+{% if tag.desc %}
+	<p>{{ tag.desc }}</p>
+{% endif %}
+</div>
+{% endmacro %}
+
+{% for tag in tags %}
+{{ tagItem(tag) }}
+{% else %}
+	<p class="ifempty">没有相关数据</p>
+{% endfor %}

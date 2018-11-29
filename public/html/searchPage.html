@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>movienotes搜索页</title>
+    <link type="text/css" href="/css/searchPage.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="searchBar">
+                <span>MovieNotes</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="search" id="searchKey" size="48">
+                <button type="button" id="searchBtn"><img src="/imgs/searchIcon.png"> 搜索</button>
+            </div>
+            <div class="cate">
+                <ul>
+                    <li id="userBtn">用户</li>
+                    <li id="movieBtn">电影</li>
+                    <li id="tagBtn">标签</li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="users"></div>
+            <div class="movies"></div>
+            <div class="tagss">
+                <p>
+                    <span class="flashDesc">闪电符号后的数字是引用该标签的电影数</span>
+                    <button type="button" class="allTagBtn">全部标签</button>
+                </p>
+                <div class="tags"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/searchPage.js"></script>
+</body>
+
+</html>

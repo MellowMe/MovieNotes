@@ -1,0 +1,26 @@
+{
+  "name": "movie-notes",
+  "version": "1.0.0",
+  "description": "本项目名为“影片小本”——MovieNote，旨在给用户提供记录、评论、分享最近看过的电影的平台\r 目前项目包含 3 各页面，分别是登录页、个人主页、新记录提交页",
+  "keywords": [
+    "movie",
+    "note",
+    "record",
+    "comment",
+    "share"
+  ],
+  "author": "151250152_王宇帆",
+  "license": "ISC",
+  "dependencies": {
+    "got": "9.3.2",
+    "koa": "2.5.3",
+    "koa-body": "4.0.4",
+    "koa-router": "7.4.0",
+    "koa-session": "5.10.0",
+    "koa-static": "5.0.0",
+    "mysql2": "1.6.1",
+    "nunjucks": "^3.1.3",
+    "sequelize": "4.39.1"
+  },
+  "repository": {}
+}

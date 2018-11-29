@@ -1,0 +1,168 @@
+body {
+    background: #eff4f8;
+}
+
+div.wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 720px 1fr;
+    grid-template-rows: 180px 1fr;
+    grid-template-areas: "m h n" "l c r";
+}
+
+div.content {
+    grid-area: c;
+    }
+
+header {
+    grid-area: h;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 60px 65px 55px;
+    grid-template-areas: "t" "v" "b";
+}
+
+div.searchBar{
+    grid-area: v;
+} 
+        
+div.searchBar span{
+    color: #bdb1a2;
+    font:bold 30px  "Segoe Print",sans-serif;
+    vertical-align: middle;
+}
+        
+        
+div.searchBar input{
+    padding: 12px;
+    border:2px solid #ccd0d7;
+    border-radius: 5px;
+}
+
+div.searchBar img{
+    width: 0.8em;
+    height: 0.8em;
+}
+
+div.searchBar button{
+    border-radius: 10px; 
+    height: 40px;
+    vertical-align:middle;
+    font:20px 楷体,'Microsoft Yahei',宋体;
+    color:#ffffff;
+    background-color: #0b87b1;
+    cursor: pointer;
+}
+
+div.cate{
+    grid-area:b;
+    border-bottom: darkgray 1px solid;
+}
+        
+div.cate ul{
+    list-style: none;
+}
+
+div.cate li{
+    float: left;
+    padding-right: 75px;
+    font:18px 'Microsoft Yahei',宋体;
+    cursor: pointer;
+}
+
+#movieBtn{
+    color:#0b87b1;
+}
+div.users{
+    display: none;
+}
+div.movies{
+    display: block;
+}
+div.tagss{
+    display: none;
+}
+
+
+div.item{
+    margin-top:20px; 
+    margin-left:20px; 
+    padding-bottom:20px; 
+}
+
+div.item h1 {
+    margin: 10px;
+}
+
+.poster {
+    width: 200px;
+    float: left;
+}
+
+img.avatar{
+    width: 80px;
+    float: left;
+    margin-right:30px; 
+}
+
+.movieIntro{
+    float: left;
+}
+
+.username{
+    font: bold 18px "Microsoft YaHei UI";
+    margin-top: 10px;
+}
+
+.motto{
+    font-family:楷体,"Microsoft YaHei UI";
+    margin-top:10px; 
+}
+
+table.summary {
+    float: right;
+    width: 450px;
+    height: 280px;
+    margin-left: 10px;
+    font: 14px "Microsoft YaHei UI";
+}
+
+table.summary td {
+    line-height: 22px;
+}
+
+
+
+span.addTag,span.tag, span.addTagBtn, span.deleteTagBtn, span.cancelDeleteBtn{
+    border-radius:100px;
+    padding:2px 10px;
+    cursor: pointer;
+    line-height: 18px;
+    background-color: #b6c7d4;
+    border:1px solid #dde1e4;
+    margin-right: 5px;
+}
+
+span.addTag, span.cancelDeleteBtn{
+    display: none;
+}
+
+table.summary input{
+    border: none;
+    line-height: 18px;
+    background-color: #b6c7d4;
+}
+
+.allTagBtn{
+    height: 24px;
+    border-radius: 10px; 
+    font:16px 楷体,'Microsoft Yahei',宋体;
+    color:#ffffff;
+    background-color: #71a999;
+    cursor: pointer;
+    float: right;
+}
+
+.flashDesc{
+    font-style: italic;
+
+}

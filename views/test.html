@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title> 截取框移动试验 </title>
+	<style type="text/css">
+		#div {
+			position: absolute;
+			left: 40%;
+			top: 40%;
+			right: 40%;
+			bottom: 40%;
+			background-color: orangered;
+			opacity: 0.3;
+		}
+
+		#wrap {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			width: 400px;
+			height: 300px;
+			min-width: 100px;
+			min-height: 100px;
+			background-color: lightcyan;
+			resize: both;
+			overflow: auto;
+			opacity: 0.3;
+		}
+
+		#out {
+			position: fixed;
+			left: 100px;
+			top: 100px;
+			width: 800px;
+			height: 600px;
+			background: url('../imgs/夜景.jpg');
+		}
+	</style>
+</head>
+<body>
+<div id="out">
+	<div id="wrap">
+		<div id="div">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    let div = document.getElementById("div");
+    let wrap = document.getElementById("wrap");
+    let out = document.getElementById("out");
+    let dragFlag = false;
+    let x, y;
+    let maxLeft, maxTop;
+
+    div.onmousedown = function (e) {
+        x = e.clientX - wrap.offsetLeft;
+        y = e.clientY - wrap.offsetTop;
+        dragFlag = true;
+    };
+
+    document.onmousemove = function (e) {
+
+        if (dragFlag) {
+                wrap.style.left = e.clientX - x + "px";
+                wrap.style.top = e.clientY - y + "px";
+
+        }
+    };
+
+    document.onmouseup = function () {
+        maxLeft = parseInt(getComputedStyle(out).width) - parseInt(getComputedStyle(wrap).width);
+        maxTop = parseInt(getComputedStyle(out).height) - parseInt(getComputedStyle(wrap).height);
+        if(wrap.offsetLeft < 0)
+            wrap.style.left="0";
+        else if(wrap.offsetLeft > maxLeft)
+            wrap.style.left = maxLeft+"px";
+        if(wrap.offsetTop<0)
+            wrap.style.top = "0";
+        else if(wrap.offsetTop > maxTop)
+            wrap.style.top = maxTop+"px";
+        dragFlag = false;
+    };
+
+</script>
+</body>
+</html>

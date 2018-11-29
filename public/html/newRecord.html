@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>新记录</title>
+</head>
+<link rel="stylesheet" href="../css/newRecord.css" type="text/css"/>
+<body>
+<div class="outWrap">
+	<div class="record">
+		<form id="recordForm" enctype="multipart/form-data">
+			<h3>--------这部电影我看过--------</h3>
+			<p style="font-style:italic;font-weight:lighter">我们会查看电影的资料是否已经存在来决定您是否需要手动输入</p>
+			<table>
+				<tr>
+					<td>电影名</td>
+					<td>
+						<input type="text" name="movieName" id="movieNameInput"/>
+						<span id="message"></span>
+						<input type="hidden" id="movieId" value="-1"/><!--if the movie already exsits in the database-->
+					</td>
+				</tr>
+				<tr>
+					<td>海报</td>
+					<td><input type="file" id="posterInput" name="poster" /></td>
+				</tr>
+				<tr>
+					<td>导演</td>
+					<td><input type="text" id="director" name="director" /></td>
+				</tr>
+				<tr>
+					<td>编剧</td>
+					<td><input type="text" id="writer" name="writer"/></td>
+				</tr>
+				<tr>
+					<td>主演</td>
+					<td><input type="text" id="actors" name="actors" /></td>
+				</tr>
+				<tr>
+					<td>类型</td>
+					<td><input type="text" id="movieType" name="type" /></td>
+				</tr>
+				<tr>
+					<td>地区</td>
+					<td><input type="text" id="region" name="region" /></td>
+				</tr>
+				<tr>
+					<td>上映日期</td>
+					<td><input type="date" id="releaseDate" name="releaseDate" >
+					</td>
+				</tr>
+				<tr>
+					<td>时长</td>
+					<td><input type="number" id="duration" name="duration" placeholder="电影分钟数"/></td>
+				</tr>
+				<tr>
+					<td>简介</td>
+					<td><textarea name="introduction" id="introduction" placeholder="说说剧情？" rows="6" cols="60"></textarea></td>
+				</tr>
+				<tr>
+					<td>观看日期</td>
+					<td><input type="date" name="watchDate" >
+					</td>
+				</tr>
+				<tr>
+					<td>观看地点</td>
+					<td><input type="text" name="watchPlace" placeholder="在哪看的？" /></td>
+				</tr>
+				
+				<tr>
+					<td>观影记忆</td>
+					<td><textarea name="memory" placeholder="记录一下当时的美好记忆吧" rows="5" cols="60" ></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>照了照片？</td>
+					<td><input type="file" id="photoInput" name="photo"/></td>
+				</tr>
+				<tr>
+					<td>总评</td>
+					<td>
+						很好看<input type="radio" name="judge" value="5"/>&nbsp;&nbsp;&nbsp;
+						好看<input type="radio" name="judge" value="4"/>&nbsp;&nbsp;&nbsp;
+						一般<input type="radio" name="judge" value="3" checked/>&nbsp;&nbsp;&nbsp;
+						不怎么样<input type="radio" name="judge" value="2"/>&nbsp;&nbsp;&nbsp;
+						垃圾<input type="radio" name="judge" value="1"/>
+					</td>
+				</tr>
+				<tr>
+					<td>详评</td>
+					<td><textarea name="comment" placeholder="说说你的评价？" rows="8" cols="60" ></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button id="postBtn" type="button">写好啦！</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="cancelAllBtn" type="button">算了吧~</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div>
+		<div class="preview1">
+			<h4>海报预览</h4>
+			<img src="" id="poster"/>
+		</div>
+		<div class="preview2">
+			<h4>照片预览</h4>
+			<img src="" id="photo"/>
+		</div>
+		<p>
+			<button type="button" id="editImgBtn" disabled="disabled">编辑照片</button>
+		</p>
+	</div>
+</div>
+<div id="above">
+	<div id="out">
+		<canvas id="panel"></canvas>
+		<div id="wrap">
+			<div id="min"></div>
+		</div>
+	</div>
+	<div class="operate">
+		<div class="menu">
+			<button id="cutBtn" type="button">裁剪</button>&nbsp;
+			<button id="filterBtn" type="button">滤镜</button>&nbsp;
+			<button id="brushBtn" type="button">画笔</button>&nbsp;
+			<button id="recoverBtn" type="button">原图</button>&nbsp;
+			<button id="back" type="button">完成</button>&nbsp;
+			<button id="cancelBtn" type="button">&nbsp; &#10006; &nbsp;</button>
+		</div>
+		<div id="secondaryMenu">
+
+		</div>
+	</div>
+</div>
+<script src="../js/newRecord.js"></script>
+</body>
+</html>

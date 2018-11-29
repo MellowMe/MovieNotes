@@ -1,0 +1,88 @@
+{% macro item(movie) %}
+<div class="item">
+	<h1>{{ movie.movieName }}</h1>
+	<div>
+		<img class="poster" src="/upload/imgs/{{movie.poster}}" alt="海报">
+		<table class="summary">
+			<tr>
+				<td>导演：</td>
+				<td>{{ movie.director }}</td>
+			</tr>
+			<tr>
+				<td>编剧：</td>
+				<td>{{ movie.writer }}</td>
+			</tr>
+			<tr>
+				<td>主演：</td>
+				<td>{{ movie.actor }}</td>
+			</tr>
+			<tr>
+				<td>类型：</td>
+				<td>{{movie.type}}</td>
+			</tr>
+			<tr>
+				<td>地区：</td>
+				<td>{{movie.region}}</td>
+			</tr>
+			<tr>
+				<td>上映日期：</td>
+				<td>{{movie.releaseDate}}</td>
+			</tr>
+			<tr>
+				<td>时长：</td>
+				<td>{{movie.duration}} 分钟</td>
+			</tr>
+			<tr>
+				<td>大家评：</td>
+				<td>
+					<span style="color:#ffd596">
+						{%if movie.score ==5 %}
+						&#9733;&#9733;&#9733;&#9733;&#9733;
+						{% elif movie.score > 4 %}
+						&#9733;&#9733;&#9733;&#9733;&#10030;
+						{%elif movie.score == 4 %}
+						&#9733;&#9733;&#9733;&#9733;
+						{%elif movie.score > 3 %}
+						&#9733;&#9733;&#9733;&#10030;
+						{%elif movie.score == 3 %}
+						&#9733;&#9733;&#9733;
+						{%elif movie.score > 2 %}
+						&#9733;&#9733;&#10030;
+						{%elif movie.score == 2 %}
+						&#9733;&#9733;
+						{%elif movie.score > 1 %}
+						&#9733;&#10030;
+						{%else%}
+						&#9733;
+						{%endif%}
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>标签：</td>
+				<td>
+					{% for tag in movie.tags %}
+					<span class="tag">{{tag.tagName}}</span>
+					{% endfor %}
+					<span class="addTagBtn">+</span>
+					<span class="deleteTagBtn">-</span>
+					<span class="addTag">
+						<input class="addTagInput" size="16" type="text" />
+						<span class="cancelAddBtn">&#10005;</span>
+					</span>
+					<span class="cancelDeleteBtn">&#10005;</span>
+				</td>
+			</tr>
+		</table>
+		<div class="movieIntro">
+			<h4>Introduction/剧情简介</h4>
+			<p>{{movie.intro}}</p>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+{% for movie in movies %}
+{{ item(movie) }}
+{% else %}
+<p class="ifempty">没有相关数据</p>
+{% endfor %}

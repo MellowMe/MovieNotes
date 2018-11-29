@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{user.username+"的主页"}}</title>
+	<link type="text/css" href="/css/mypage.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			{% if user.avatar %}
+			<img src="/upload/imgs/{{user.avatar}}" alt="头像">
+			{% else %}
+			<img src="/imgs/blank.png" alt="头像">
+			{% endif %}
+			<div class="userInfo">
+				<p class="username">{{ user.username }}</p>
+				{% if user.motto %}
+					<p class="motto">{{ user.motto }}</p>
+				{% else %}
+					<p class="motto">record,comment and share</p>
+				{% endif %}
+				<div class="weather"></div>
+			</div>
+		</header>
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a>影片小本</a></li>
+					<li><a>我的主页</a></li>
+					<li><a href="/html/newRecord.html">新记录</a></li>
+					<li><a>关注</a></li>
+					<li><a>我的</a></li>
+				</ul>
+			</nav>
+
+			<div class="content">
+				<article>
+					{% macro item(record) %}
+					<div class="item">
+						<h1>{{ record.movie.movieName }}</h1>
+						<div>
+							<img class="poster" src="/upload/imgs/{{record.movie.poster}}" alt="海报">
+							<table class="summary">
+								<tr>
+									<td>导演：</td>
+									<td>{{ record.movie.director }}</td>
+								</tr>
+								<tr>
+									<td>编剧：</td>
+									<td>{{ record.movie.writer }}</td>
+								</tr>
+								<tr>
+									<td>主演：</td>
+									<td>{{ record.movie.actor }}</td>
+								</tr>
+								<tr>
+									<td>类型：</td>
+									<td>{{record.movie.type}}</td>
+								</tr>
+								<tr>
+									<td>地区：</td>
+									<td>{{record.movie.region}}</td>
+								</tr>
+								<tr>
+									<td>上映日期：</td>
+									<td>{{record.movie.releaseDate}}</td>
+								</tr>
+								<tr>
+									<td>时长：</td>
+									<td>{{record.movie.duration}} 分钟</td>
+								</tr>
+								<tr>
+									<td>大家评：</td>
+									<td>
+										<span style="color:#ffd596">
+											{%if record.movie.score ==5 %}
+											&#9733;&#9733;&#9733;&#9733;&#9733;
+											{% elif record.movie.score > 4 %}
+											&#9733;&#9733;&#9733;&#9733;&#10030;
+											{%elif record.movie.score == 4 %}
+											&#9733;&#9733;&#9733;&#9733;
+											{%elif record.movie.score > 3 %}
+											&#9733;&#9733;&#9733;&#10030;
+											{%elif record.movie.score == 3 %}
+											&#9733;&#9733;&#9733;
+											{%elif record.movie.score > 2 %}
+											&#9733;&#9733;&#10030;
+											{%elif record.movie.score == 2 %}
+											&#9733;&#9733;
+											{%elif record.movie.score > 1 %}
+											&#9733;&#10030;
+											{%else%}
+											&#9733;
+											{%endif%}
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td>标签：</td>
+									<td>
+										{% for tag in record.movie.tags %}
+										<span class="tag">{{tag.tagName}}</span>
+										{% endfor %}
+										<span class="addTagBtn">+</span>
+										<span class="deleteTagBtn">-</span>
+										<span class="addTag">
+											<input class="addTagInput" placeholder="按回车键完成输入" size="16" type="text" />
+											<span class="cancelAddBtn">&#10005;</span>
+										</span>
+										<span class="cancelDeleteBtn">&#10005;</span>
+									</td>
+								</tr>
+							</table>
+							<div class="words">
+								<h4>Introduction/剧情简介</h4>
+								<p>{{record.movie.intro}}</p>
+								<h4>Memories/观影记忆</h4>
+								{% if record.photo %}
+								<img class="photo" src="/upload/imgs/{{record.photo}}" alt="照片">
+								{% endif %}
+								<p class="memory">
+									{{record.memory}}
+								</p>
+								<p>{{record.watchPlace}}&nbsp;&nbsp;&nbsp;&nbsp;{{record.watchDate}}</p>
+								<h4>Comments/我的评价</h4>
+								<p class="judge">
+									<span class="general">总评-></span><span class="content">{{record.judge}}</span>
+								</p>
+								<p class="comments">
+									{{record.comment}}
+								</p>
+							</div>
+						</div>
+					</div>
+					{% endmacro %}
+
+					{% for record in user.records %}
+					{{ item(record) }}
+					{% endfor %}
+				</article>
+				<aside>
+					<h5>搜索</h5>
+					<form action="/html/searchPage.html">
+						<input id="searchKeyword" type="search" name="keyword" placeholder="用户/电影名/标签" />
+						<button id="searchButton" type="submit"><img src="/imgs/searchIcon2.png" width="14px"></button>
+					</form>
+					<h5>类别</h5>
+					<ul>
+						<li><a>爱情</a></li>
+						<li><a>喜剧</a></li>
+						<li><a>动作</a></li>
+						<li><a>剧情</a></li>
+						<li><a>科幻</a></li>
+						<li><a>恐怖</a></li>
+						<li><a>动画</a></li>
+						<li><a>犯罪</a></li>
+						<li><a>战争</a></li>
+					</ul>
+					<h5>精彩影评</h5>
+					<ul>
+						<li><a>碟中谍6：全面瓦解</a></li>
+						<li><a>蚁人2</a></li>
+						<li><a>一出好戏</a></li>
+						<li><a>西虹市首富</a></li>
+						<li><a>爱猫之诚</a></li>
+						<li><a>西游记之大圣归来</a></li>
+						<li><a>蝙蝠侠之黑暗骑士崛起</a></li>
+						<li><a>大法师</a></li>
+						<li><a>我不是药神</a></li>
+					</ul>
+				</aside>
+			</div>
+		</div>
+	</div>
+	<script src="/js/userPage.js"></script>
+</body>
+
+</html>
